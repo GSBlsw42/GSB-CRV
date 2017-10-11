@@ -1,25 +1,28 @@
 <div id="contenu">
 	<h3 style="text-align: center;">Ajouter une visite</h3>
 	<form method='POST' action='index.php?uc=gererVisite&action=validerAjoutVisite'>
-	
+		<p>Praticien visiter :</p>
 		<select class="form-control" name="praticien">
 			<?php 
-				$praticien = $bdd->query('SELECT id, refCode, nom
-				          					FROM Praticien
-				         					ORDER BY nom');
+				$refPraticien = $bdd->query('SELECT id, refCode, nom, code, libelle
+												FROM Praticien, Specialite
+												WHERE code = refCode 
+												ORDER BY nom');			
 
-				while ($praticien = $praticien->fetch()) {
+				while ($praticien = $refPraticien->fetch()) {
 					$id = $praticien["id"];
 					$refCode = $praticien["refCode"];
-					$nom = $praticien['nom']; ?>
-					<option value="<?=$id?>"><?=$nom?></option>
+					$nom = $praticien['nom'];
+					$libelle = $praticien['libelle'] ?>
+					<option value="<?=$id?>"><?=$nom?> : <?=$libelle?></option>
 			<?php 
 				};
-				$refMotif->closeCursor();
+				$refPraticien->closeCursor();
 			?>
-			    </select>
-			  
+		</select>
 
+		<br>
+		<p>Sélectionnez la date de la fin de la visite : </p>
 		<table class='tabNonQuadrille'>
 			<tr>
 				<td><i class="fa fa-calendar" aria-hidden="true"></i></td>
@@ -27,26 +30,17 @@
 					<input  type='text' name=dateDebut placeholder="Date fin de visite" class="datepicker" size='30' maxlength='45'>
 				</td>
 			</tr>
-			<tr>
-				<select class="form-control" name="code">
-				    <?php 
-				    	/*
-					    $nomPraticien= $bdd->query('SELECT code, libelle
-					       FROM Motif
-					       ORDER BY libelle');
-
-					     while ($motif = $refMotif->fetch()) {
-						     $code = $motif["code"];
-						     $libelle = $motif["libelle"]; ?>
-						     <option value="<?=$code?>"><?=$libelle?></option>';
-						     <?php 
-						 }; 
-					     $refMotif->closeCursor();
-						*/
-				     ?>
-				</select>
-			</tr>
 		</table>
+
+		<br>
+		<p>Niveau d'interêt du praticien durant la visite : </p>
+		<select class = "form-control" name="interet">
+		<?php
+		 for ($i=0; $i < 6; $i++) { ?>
+		 	<option value="<?=$i?>"><?=$i?></option>
+		<?php }
+		?>
+		</select>
 
 		<div style="position: relative;left: 50%; width: 200px; margin-left: -100px; margin-top: 20px; text-align: center;">
 			<input type='submit' value='Valider' name='valider' style="margin: 10px;">

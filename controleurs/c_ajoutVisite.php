@@ -7,6 +7,7 @@ if(!isset($_REQUEST['action'])){
 $action = $_REQUEST['action'];
 switch($action){
 	case 'ajout':{
+		$bdd = new PDO('mysql:host=localhost;dbname=my_btsw2015;charset=utf8', 'root', 'barlito');
 		include("vues/v_ajoutVisite.php");
 		break;
 	}
