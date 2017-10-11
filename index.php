@@ -27,6 +27,8 @@ switch($uc){
 	case 'gererAbs' : {
 		include("controleurs/c_gererAbs.php");break;
 	}
+	case 'ajoutVisite':
+		include("controleurs/c_ajoutVisite.php");break;
 }
 include("vues/v_pied.php") ;
 ?>

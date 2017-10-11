@@ -16,13 +16,16 @@
               <a href="index.php?uc=gererFrais&action=saisirFrais" title="Saisie fiche de frais ">Saisie fiche de frais</a>
            </li>
            <li class="smenu">
+              <a href="index.php?uc=ajoutAbs&action=ajout" title="Ajouter une absence"> Ajouter une absence </a>
+           </li>
+           <li class="smenu">
+              <a href="index.php?uc=ajoutVisite&action=ajout" title="Ajouter une visite"> Ajouter une visite </a>
+           </li>
+           <li class="smenu">
               <a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
            </li>
  	         <li class="smenu">
               <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
            </li>
          </ul>
-    </div>
-    <div>
-      <a href="index.php?uc=ajoutAbs&action=ajout" title="Ajouter une absence"> Ajouter une absence </a>
     </div>
