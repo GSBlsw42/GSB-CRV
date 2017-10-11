@@ -1,4 +1,5 @@
 <?php
+include("vues/v_sommaire.php");
 if(!isset($_REQUEST['action'])){
 	$_REQUEST['action'] = 'ajout';
 }
