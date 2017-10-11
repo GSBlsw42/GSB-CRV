@@ -256,13 +256,16 @@ class PdoGsb{
  * à partir des informations fournies en paramètre
 
  * @param $idVisiteur
- * @param $dateDebut
+ * @param $idPraticien
  * @param $dateFin
- * @param $motif : le motif
+ * @param $interet
 */
-	public function creeNouvelleVisite(){
-
+	public function creeNouvelleVisite($idVisiteur,$idPraticien,$dateFin,$interet){
+		$req = "INSERT INTO Visite
+		VALUES('','$idVisiteur','$idPraticien','$dateFin','$interet')";
+		PdoGsb::$monPdo->exec($req);
 	}
+
 /**
  * Supprime le frais hors forfait dont l'id est passé en argument
 

@@ -1,5 +1,5 @@
 <?php
-//test debug et sync et modif de comentaire pour test 
+//test debug et sync et modif de comentaire pour test
 //et modif en appelant l'éditeur sublime directement depuis githubformac
 require_once("include/fct.inc.php");
 require_once ("include/class.pdogsb.inc.php");
@@ -9,7 +9,7 @@ $pdo = PdoGsb::getPdoGsb();
 $estConnecte = estConnecte();
 if(!isset($_REQUEST['uc']) || !$estConnecte){
      $_REQUEST['uc'] = 'connexion';
-}	 
+}
 $uc = $_REQUEST['uc'];
 switch($uc){
 	case 'connexion':{
@@ -19,7 +19,7 @@ switch($uc){
 		include("controleurs/c_gererFrais.php");break;
 	}
 	case 'etatFrais' :{
-		include("controleurs/c_etatFrais.php");break; 
+		include("controleurs/c_etatFrais.php");break;
 	}
 	case 'ajoutAbs' :{
 		include("controleurs/c_ajoutAbs.php");break;
@@ -27,8 +27,12 @@ switch($uc){
 	case 'gererAbs' : {
 		include("controleurs/c_gererAbs.php");break;
 	}
-	case 'ajoutVisite':
+	case 'ajoutVisite': {
 		include("controleurs/c_ajoutVisite.php");break;
+	}
+	case 'gererVisite' : {
+		include("controleurs/c_gererVisite.php");break;
+	}
 }
 include("vues/v_pied.php") ;
 ?>

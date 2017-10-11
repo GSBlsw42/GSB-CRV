@@ -52,6 +52,12 @@ function dateAnglaisVersFrancais($maDate){
    $date="$jour"."/".$mois."/".$annee;
    return $date;
 }
+
+function dateAnglaisVersFrancaisVisite($maDate){
+   @list($mois,$jour,$annee)=explode('/',$maDate);
+   $date="$annee"."/".$mois."/".$jour;
+   return $date;
+}
 /**
  * retourne le mois au format aaaamm selon le jour dans le mois
 
@@ -203,6 +209,12 @@ function valideInfosAbs($dateDebut,$dateFin,$motif){
 		}
 	if($motif == ""){
 		ajouterErreur("Le champ motif ne peut pas être vide");
+	}
+}
+
+function valideVisite($date){
+	if($date==""){
+		ajouterErreur("Le champ date ne doit pas être vide");
 	}
 }
 /**

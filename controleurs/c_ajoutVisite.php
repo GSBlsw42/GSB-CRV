@@ -11,9 +11,9 @@ switch($action){
 		include("vues/v_ajoutVisite.php");
 		break;
 	}
-	// default :{
-	// 	include("vues/v_erreur.php");
-	// 	break;
-	// }
+	default :{
+	include("vues/v_erreur.php");
+	break;
+	}
 }
 ?>

@@ -1,13 +1,13 @@
 <div id="contenu">
 	<h3 style="text-align: center;">Ajouter une visite</h3>
 	<form method='POST' action='index.php?uc=gererVisite&action=validerAjoutVisite'>
-		<p>Praticien visiter :</p>
+		<p>Praticien visité :</p>
 		<select class="form-control" name="praticien">
-			<?php 
+			<?php
 				$refPraticien = $bdd->query('SELECT id, refCode, nom, code, libelle
 												FROM Praticien, Specialite
-												WHERE code = refCode 
-												ORDER BY nom');			
+												WHERE code = refCode
+												ORDER BY nom');
 
 				while ($praticien = $refPraticien->fetch()) {
 					$id = $praticien["id"];
@@ -15,7 +15,7 @@
 					$nom = $praticien['nom'];
 					$libelle = $praticien['libelle'] ?>
 					<option value="<?=$id?>"><?=$nom?> : <?=$libelle?></option>
-			<?php 
+			<?php
 				};
 				$refPraticien->closeCursor();
 			?>
@@ -23,15 +23,8 @@
 
 		<br>
 		<p>Sélectionnez la date de la fin de la visite : </p>
-		<table class='tabNonQuadrille'>
-			<tr>
-				<td><i class="fa fa-calendar" aria-hidden="true"></i></td>
-				<td>
-					<input  type='text' name=dateDebut placeholder="Date fin de visite" class="datepicker" size='30' maxlength='45'>
-				</td>
-			</tr>
-		</table>
 
+					<input  type='text' name=dateFin placeholder="Date fin de visite" class="datepicker" size='30' maxlength='45'>
 		<br>
 		<p>Niveau d'interêt du praticien durant la visite : </p>
 		<select class = "form-control" name="interet">
@@ -46,7 +39,7 @@
 			<input type='submit' value='Valider' name='valider' style="margin: 10px;">
 			<input type='reset' value='Annuler' name='annuler' style="margin: 10px;">
 		</div>
-		
+
 
 	</form>
 </div>
