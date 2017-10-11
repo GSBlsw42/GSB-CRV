@@ -252,6 +252,18 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 /**
+ * Crée une nouvelle visite d'un visiteur a un praticien
+ * à partir des informations fournies en paramètre
+
+ * @param $idVisiteur
+ * @param $dateDebut
+ * @param $dateFin
+ * @param $motif : le motif
+*/
+	public function creeNouvelleVisite(){
+
+	}
+/**
  * Supprime le frais hors forfait dont l'id est passé en argument
 
  * @param $idFrais
