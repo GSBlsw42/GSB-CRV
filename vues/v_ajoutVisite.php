@@ -4,12 +4,7 @@
 		<p>Praticien visité :</p>
 		<select class="form-control" name="praticien">
 			<?php
-				$refPraticien = $bdd->query('SELECT id, refCode, nom, code, libelle
-												FROM Praticien, Specialite
-												WHERE code = refCode
-												ORDER BY nom');
-
-				while ($praticien = $refPraticien->fetch()) {
+				while ($praticien = $lesPraticiens->fetch()) {
 					$id = $praticien["id"];
 					$refCode = $praticien["refCode"];
 					$nom = $praticien['nom'];
@@ -17,7 +12,7 @@
 					<option value="<?=$id?>"><?=$nom?> : <?=$libelle?></option>
 			<?php
 				};
-				$refPraticien->closeCursor();
+				$lesPraticiens->closeCursor();
 			?>
 		</select>
 

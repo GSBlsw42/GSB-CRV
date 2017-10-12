@@ -20,9 +20,9 @@
 			    <select class="form-control" name="code">
 			       <?php 
 
-				       $refMotif = $bdd->query('SELECT code, libelle
-				          FROM Motif
-				          ORDER BY libelle');
+				       // $refMotif = $bdd->query('SELECT code, libelle
+				       //    FROM Motif
+				       //    ORDER BY libelle');
 
 				        while ($motif = $refMotif->fetch()) {
 					        $code = $motif["code"];

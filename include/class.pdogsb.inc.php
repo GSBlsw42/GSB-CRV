@@ -18,8 +18,8 @@
 class PdoGsb{
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=my_btsw2015';
-      	private static $user='root' ;
-      	private static $mdp='barlito' ;
+      	private static $user='user' ;
+      	private static $mdp='user' ;
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
@@ -327,6 +327,27 @@ class PdoGsb{
 		$req = "update FicheFrais set idEtat = '$etat', dateModif = now()
 		where FicheFrais.idVisiteur ='$idVisiteur' and FicheFrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
+	}
+
+/**
+ * Retourne la liste des praticiens
+ */
+
+	public function getLesPraticiens(){
+		$req = " SELECT id, refCode, nom, code, libelle FROM Praticien, Specialite WHERE code = refCode ORDER BY nom ";
+		$res = PdoGsb::$monPdo->query($req);
+		return $res;
+	}
+
+
+/**
+ * Retourne la liste des abs
+ */
+
+	public function creerNewAbs(){
+		$req = "SELECT code, libelle FROM Motif ORDER BY libelle";
+		$res = PdoGsb::$monPdo->query($req);
+		return $res;
 	}
 }
 ?>
