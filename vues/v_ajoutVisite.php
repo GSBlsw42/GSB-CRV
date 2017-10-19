@@ -37,4 +37,22 @@
 
 
 	</form>
+
+
+
+
+	<?php 
+		foreach ($leVisiteur as $visiteur) {
+			var_dump($visiteur);
+			break;
+		}
+
+		foreach ($lesVisites as $visite) {
+			var_dump($visite);
+			break;
+		}
+
+
+	 ?>
+
 </div>

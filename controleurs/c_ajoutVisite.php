@@ -8,6 +8,8 @@ $action = $_REQUEST['action'];
 switch($action){
 	case 'ajout':{
 		$lesPraticiens = $pdo->getLesPraticiens();
+		$leVisiteur = $pdo->getUnVisiteur();
+		$lesVisites = $pdo->getLesVisites();
 		include("vues/v_ajoutVisite.php");
 		break;
 	}

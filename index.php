@@ -3,6 +3,9 @@
 //et modif en appelant l'éditeur sublime directement depuis githubformac
 require_once("include/fct.inc.php");
 require_once ("include/class.pdogsb.inc.php");
+require_once("model/GereVisiteurClass.php");
+require_once("model/VisiteurClass.php");
+require_once("model/VisiteClass.php");
 include("vues/v_entete.php") ;
 session_start();
 $pdo = PdoGsb::getPdoGsb();

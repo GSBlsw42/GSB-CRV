@@ -347,7 +347,39 @@ class PdoGsb{
 	public function creerNewAbs(){
 		$req = "SELECT code, libelle FROM Motif ORDER BY libelle";
 		$res = PdoGsb::$monPdo->query($req);
-		return $res;
+		return $res ;
 	}
+		
+/**
+ * Hydratation de mon objet Visiteur
+ */
+
+	public function getUnVisiteur(){
+
+  		$q = "SELECT * FROM Visiteur";
+  		$q = PdoGsb::$monPdo->query($q);
+  		while ($donnees = $q->fetch()) {
+  			$visiteurs = new Visiteur($donnees);
+  			$visiteur[] = $visiteurs;
+  		}
+
+  		return $visiteur;
+
+  	}
+
+  	public function getLesVisites(){
+
+  		$q = "SELECT * FROM Visite";
+  		$q = PdoGsb::$monPdo->query($q);
+  		while ($donnees = $q->fetch()) {
+  			$visites = new Visite($donnees);
+  			$visite[] = $visites;
+  		}
+
+  		return $visite;
+
+  	}
+
+
 }
 ?>
